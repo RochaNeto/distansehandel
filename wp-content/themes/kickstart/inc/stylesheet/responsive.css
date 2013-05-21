@@ -98,6 +98,11 @@
 		#footer-menu ul li{float:none; display:inline-block;}
 		#footer-menu ul li:first-child a{padding-left:0px;}
 		
+		/* Footer */
+		#top-sub-nav{float:none; text-align: center; width:100%; margin-top:10px;}
+		#top-sub-nav ul li{float:none; display:inline-block;}
+		#top-sub-nav ul li:first-child a{padding-left:0px;}
+		
 		/* Mobile menu style */
 		.toggleMenu {font-family: Arial, Helvetica, sans-serif; height:45px; background:#333 url('../../images/mobile-menu-bg.png') repeat-x left bottom; display:block; padding: 0 20px; font-size: 11px; color:#f1f1f1 !important; text-transform:uppercase; line-height:45px; font-weight:bold; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196); -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196); -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196);}
 		.toggleMenu span{margin-top:14px; display:block; border-bottom: 10px double #f1f1f1; border-top:3px solid #f1f1f1; height: 4px; width:20px; float:right;}
