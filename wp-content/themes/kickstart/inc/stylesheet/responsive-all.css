@@ -57,6 +57,11 @@
 		#footer-menu{float:none; text-align: center; width:100%; margin-top:10px;}
 		#footer-menu ul li{float:none; display:inline-block;}
 		#footer-menu ul li:first-child a{padding-left:0px;}
+
+		/* Top-sub-nav*/
+		#top-sub-nav{float:none; text-align: center; width:100%; margin-left:20px;}
+		#top-sub-nav ul li{float:left; display:inline-block;}
+		#top-sub-nav ul li:first-child a{padding-left:0px;}
 		
 		/* Mobile menu style */
 		.toggleMenu {font-family: Arial, Helvetica, sans-serif; height:45px; background:#333 url('../../images/mobile-menu-bg.png') repeat-x left bottom; display:block; padding: 0 20px; font-size: 11px; color:#f1f1f1 !important; text-transform:uppercase; line-height:45px; font-weight:bold; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196); -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196); -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.196);}
@@ -209,6 +214,7 @@
 
 		/* Footer */
 		#footer-wrapper #footer-widget-area .widget-area {width: 100%; margin-right:0px; float:none;}
+
 		
 		/* Mobile menu style */
 		#menu-wrapper{height:45px; position:absolute; top:0px; left:0; right:0; margin: 0; border:none; z-index:999;}

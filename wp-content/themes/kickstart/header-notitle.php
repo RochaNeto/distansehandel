@@ -51,6 +51,13 @@
 <body <?php body_class('no-title-wrapper'); ?>>
 <!-- Layout wrapper -->
 	<div id="layout-wrapper" class="<?php echo ot_get_option('theme_layout', 'full-width'); ?>">
+	<!-- Top sub-nav -->
+	<div id="top-sub-nav-wrapper">
+		<div id="top-sub-nav-container">
+			<?php wp_nav_menu( array('theme_location' => 'footer', 'container_id' => 'top-sub-nav', 'fallback_cb' => false));
+			?>
+		</div>
+	</div>
 	
 <!-- Header -->
 	<div id="header-wrapper">
