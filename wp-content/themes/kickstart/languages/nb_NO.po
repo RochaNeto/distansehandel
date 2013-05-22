@@ -194,7 +194,7 @@ msgstr ""
 #. Text in function
 #: kickstart/inc/plugin/breadcrumb-trail.php:35
 msgid "Home"
-msgstr ""
+msgstr "Hjem"
 
 #. Text in echo
 #: kickstart/inc/global/content-elements.php:85
