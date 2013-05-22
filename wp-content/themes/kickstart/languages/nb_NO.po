@@ -158,7 +158,7 @@ msgstr ""
 #: kickstart/content-audio.php:53 kickstart/content-image.php:66
 #: kickstart/content.php:56 kickstart/content-video.php:53
 msgid "Read more"
-msgstr ""
+msgstr "Les mer"
 
 #. Text in echo
 #: kickstart/searchform.php:8
