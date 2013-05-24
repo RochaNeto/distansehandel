@@ -13,7 +13,7 @@ msgstr ""
 #. Text in function
 #: kickstart/inc/global/content-elements.php:74
 msgid " [Edit]"
-msgstr ""
+msgstr "[Rediger]"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:74
@@ -23,32 +23,32 @@ msgstr ""
 #. Text in function
 #: kickstart/inc/global/content-elements.php:31 kickstart/comments.php:13
 msgid "% Comments"
-msgstr ""
+msgstr "% Kommentarer"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:99
 msgid "(Edit)"
-msgstr ""
+msgstr "(Rediger)"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:31
 msgid "0 Comments"
-msgstr ""
+msgstr "0 Kommentarer"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:31
 msgid "1 Comment"
-msgstr ""
+msgstr "1 Kommentar"
 
 #. Text in echo
 #: kickstart/single.php:21
 msgid "About the author:"
-msgstr ""
+msgstr "Om forfatteren:"
 
 #. Text in echo
 #: kickstart/page-portfolio.php:40
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #. Text in echo
 #: kickstart/search.php:53
@@ -56,6 +56,8 @@ msgid ""
 "Apologies, but no results were found for the requested archive. Perhaps "
 "another search will help find a related post."
 msgstr ""
+"Beklager, men ingen resultater ble funnet for søket. Kanskje et annet søk "
+"vil finne en relatert post."
 
 #. Text in echo
 #: kickstart/index.php:38
@@ -63,21 +65,23 @@ msgid ""
 "Apologies, but no results were found for the requested archive. Perhaps "
 "searching will help find a related post."
 msgstr ""
+"Beklager, men ingen resultater ble funnet for søket. Kanskje et søk vil "
+"finne en relatert post."
 
 #. Text in echo
 #: kickstart/header.php:106
 msgid "Archives"
-msgstr ""
+msgstr "Arkiv"
 
 #. Text in function
 #: kickstart/comments.php:35
 msgid "Click here to cancel reply."
-msgstr ""
+msgstr "Klikk her for å avbryte svar."
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:31
 msgid "Comments are off"
-msgstr ""
+msgstr "Kommentarer er slått av"
 
 #. Text in echo
 #: kickstart/header.php:106
@@ -87,17 +91,17 @@ msgstr ""
 #. Text in function
 #: kickstart/page-portfolio.php:88
 msgid "Learn More"
-msgstr ""
+msgstr "Les Mer"
 
 #. Text in function
 #: kickstart/comments.php:35
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Legg inn en Kommentar"
 
 #. Text in function
 #: kickstart/comments.php:35
 msgid "Leave a Comment to %s"
-msgstr ""
+msgstr "Legg igjen en Kommentar til %s"
 
 #. Text in echo
 #: kickstart/header-orbit-slider.php:94 kickstart/header-custom-element.php:90
@@ -109,39 +113,39 @@ msgstr "Meny"
 #. Text in function
 #: kickstart/comments.php:29
 msgid "Newer Comments"
-msgstr ""
+msgstr "Nyere Kommentarer"
 
 #. Text in function
 #: kickstart/comments.php:13
 msgid "No comments"
-msgstr ""
+msgstr "Ingen kommentarer"
 
 #. Text in echo
 #: kickstart/search.php:51 kickstart/index.php:36
 msgid "Not Found"
-msgstr ""
+msgstr "Ikke Funnet"
 
 #. Text in function
 #: kickstart/comments.php:28
 msgid "Older Comments"
-msgstr ""
+msgstr "Eldre Kommentarer"
 
 #. Text in function
 #: kickstart/comments.php:13
 msgid "One comment"
-msgstr ""
+msgstr "En kommentar"
 
 #. Text in echo
 #: kickstart/404.php:7
 msgid "Page Not Found"
-msgstr ""
+msgstr "Side Ikke Funnet"
 
 #. Text in function
 #: kickstart/content-gallery.php:29 kickstart/content-audio.php:21
 #: kickstart/content-image.php:34 kickstart/content.php:24
 #: kickstart/content-video.php:21
 msgid "Permalink to %s"
-msgstr ""
+msgstr "Permalenke til %s"
 
 #. Text in echo
 #: kickstart/inc/global/content-elements.php:99
@@ -151,7 +155,7 @@ msgstr ""
 #. Text in function
 #: kickstart/comments.php:35
 msgid "Post Comment"
-msgstr ""
+msgstr "Legg inn Kommentar"
 
 #. Text in echo
 #: kickstart/content-gallery.php:61 kickstart/search.php:19
@@ -168,28 +172,29 @@ msgstr "Søk…"
 #. Text in function
 #: kickstart/header.php:106
 msgid "Search Results for %s"
-msgstr ""
+msgstr "Søkeresultater for %s"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:39
 msgid "Tagged with: "
-msgstr ""
+msgstr "Tagget med:"
 
 #. Text in echo
 #: kickstart/404.php:10
 msgid "The page you were looking for doesn\\'t exist."
-msgstr ""
+msgstr "Siden du så etter finnes ikke."
 
 #. Text in echo
 #: kickstart/comments.php:6
 msgid ""
 "This post is password protected. Enter the password to view any comments."
 msgstr ""
+"Denne posten er passordbeskyttet. Skriv inn passordet for å se kommentarer."
 
 #. Text in function
 #: kickstart/inc/plugin/shortcodes/lib/shortcodes.php:300
 msgid "Top"
-msgstr ""
+msgstr "Topp"
 
 #. Text in function
 #: kickstart/inc/plugin/breadcrumb-trail.php:35
@@ -199,14 +204,14 @@ msgstr "Hjem"
 #. Text in echo
 #: kickstart/inc/global/content-elements.php:85
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Din kommentar avventer moderasjon."
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:19
 msgid "by"
-msgstr ""
+msgstr "av"
 
 #. Text in function
 #: kickstart/inc/global/content-elements.php:25
 msgid "in "
-msgstr ""
+msgstr "i"
