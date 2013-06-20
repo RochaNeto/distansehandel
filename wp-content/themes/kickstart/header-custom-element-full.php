@@ -87,7 +87,9 @@
 				
 				?>
 			</div>
-			
+			<div class="ecommerce-europe-logo">
+                <a href="http://www.ecommerce-europe.eu/home">Ecommerce Europe</a>
+            </div>
 			<?php get_sidebar('top') ?>
 			<div id="menu-wrapper">
 				<?php if (!ot_get_option('header_search')) { ?>

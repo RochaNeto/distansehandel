@@ -155,6 +155,17 @@ th:only-child{-moz-border-radius: 6px 6px 0 0;-webkit-border-radius: 6px 6px 0 0
 #header #logo h1{position:absolute; font-size:24px; font-weight:bold; margin-bottom:0px; left:0px; bottom:0;}
 .retina-logo {display:none;}
 
+.ecommerce-europe-logo a{
+	background: url(./images/ecommerce-europe.png) no-repeat 0 0px;
+	position: absolute;
+	display: inline-block;
+	height:52px;
+	width: 65px;
+	text-indent: -9000px;
+	margin-top: 20px;
+	margin-left: 200px;
+}
+
 /* Menu first-level */
 #primary-main-menu{font-size:15px; position:absolute; bottom:0; right:0; line-height:1; margin:0 -15px -1px 0; padding: 0; }
 #primary-main-menu li{list-style:none; position:relative; float:left; padding:0 15px 25px;}
