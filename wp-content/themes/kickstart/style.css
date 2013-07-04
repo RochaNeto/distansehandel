@@ -90,7 +90,7 @@ textarea{width: 400px; overflow:hidden; padding:10px;}
 
 input[type='submit'] {display: inline-block; background-color:#f86b35; color: #fff; font-size: 13px; font-weight:bold; height: 33px; line-height:33px; padding: 0px 20px; text-align: center; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251); text-transform: uppercase; border:none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
 
-input[type='submit']:hover {color:#ffffff; 
+input[type='submit']:hover {color:#ffffff;
 background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.23) 0%, rgba(255,255,255,0) 100%);
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.23)), color-stop(100%,rgba(255,255,255,0)));
 background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.23) 0%,rgba(255,255,255,0) 100%);
@@ -120,13 +120,13 @@ th:only-child{-moz-border-radius: 6px 6px 0 0;-webkit-border-radius: 6px 6px 0 0
 /*---------------------------------------------------------------*/
 
 /* Boxed layout */
-#layout-wrapper.boxed-attached{position:relative; width:1000px; margin:0 auto; background:#fff; box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -moz-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -webkit-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1);} 
+#layout-wrapper.boxed-attached{position:relative; width:1000px; margin:0 auto; background:#fff; box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -moz-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -webkit-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1);}
 
 /* Boxed layout with paddings */
 #layout-wrapper.boxed{position:relative; width:1000px; margin:40px auto; background: #fff; box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -moz-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1); -webkit-box-shadow: 0px 0px 19px rgba(26, 26, 26, 0.1);}
 
 /* Full width layout */
-#layout-wrapper.full-width{width:100%; background:#fff; overflow-x: hidden;} 
+#layout-wrapper.full-width{width:100%; background:#fff; overflow-x: hidden;}
 
 /*---------------------------------------------------------------*/
 /* Top-sub-nav
@@ -270,7 +270,7 @@ h2.post-title{font-size:19px; font-weight:bold; margin-bottom:15px;}
 
 /* Links */
 .link-button a, .post-link {display: inline-block; background-color:#f86b35; color: #fff; font-size: 13px; font-weight:bold; height: 33px; line-height:33px; padding: 0px 20px; text-align: center; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251); text-transform: uppercase; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.196); -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
-.link-button a:hover, .post-link:hover {color:#ffffff; 
+.link-button a:hover, .post-link:hover {color:#ffffff;
 background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.23) 0%, rgba(255,255,255,0) 100%);
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.23)), color-stop(100%,rgba(255,255,255,0)));
 background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.23) 0%,rgba(255,255,255,0) 100%);
@@ -307,7 +307,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bffffff', e
 /*---------------------------------------------------------------*/
 
 /* Default sidebar */
-#default-widget-area{width: 250px;} 
+#default-widget-area{width: 250px;}
 #sidebar_right{float:right; margin-top:5px;}
 #sidebar_left{float:left; margin-top:5px;}
 .blog #sidebar_right, .single #sidebar_right {margin-top:0px;}
@@ -381,11 +381,35 @@ input.s{width: 207px; font-size:10px; color:#A1A1A1; height:22px; padding:2px 30
 .widget_recent_entries .post-date {color:#949494; font-size:10px;}
 
 /* Menu widget */
-.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu {padding-left:15px; margin-top:9px;}
-.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu li:first-child{padding-top:9px;}
-.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu:before {content:""; display: block; margin-left: -15px; border-bottom:1px solid #E7E7E7;}
-#footer-widget-area .widget-area ul.xoxo li.widget_nav_menu ul.sub-menu:before {border-bottom:1px solid #232323; box-shadow: 0px 1px 0px rgba(224, 224, 224, 0.14); -moz-box-shadow: 0px 1px 0px rgba(224, 224, 224, 0.14);  -webkit-box-shadow: 0px 1px 0px rgba(224, 224, 224, 0.14);}
-
+.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu {
+  /* display: none; */
+  padding-left: 15px;
+  margin-top: 9px;
+}
+/*
+.widget-area ul.xoxo li.current_page_item > ul.sub-menu,
+.widget-area ul.xoxo li.current_page_ancestor > ul.sub-menu {
+  display: block;
+}
+*/
+.widget-area ul.xoxo li.current_page_item > a {
+  color: #F86B35;
+}
+.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu li:first-child {
+  padding-top: 9px;
+}
+.widget-area ul.xoxo li.widget_nav_menu ul.sub-menu:before {
+  content: "";
+  display: block;
+  margin-left: -15px;
+  border-bottom: 1px solid #E7E7E7;
+}
+#footer-widget-area .widget-area ul.xoxo li.widget_nav_menu ul.sub-menu:before {
+  border-bottom: 1px solid #232323;
+  box-shadow: 0px 1px 0px rgba(224,224,224,0.14);
+  -moz-box-shadow: 0px 1px 0px rgba(224,224,224,0.14);
+  -webkit-box-shadow: 0px 1px 0px rgba(224,224,224,0.14);
+}
 /* Side menu widget */
 .widget-area ul.xoxo li.widget_side_menu  ul {border:1px solid #e7e7e7; padding:5px 20px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
 .widget-area ul.xoxo li.widget_side_menu  ul li {border-style:dotted; border-color:#D8D8D8; padding:0px;}
@@ -505,14 +529,14 @@ ul.pf-four-columns li {list-style:none; width:220px; height:160px; float:left; m
 .bypostauthor{}
 
 /* Comments form */
-#respond {overflow: hidden; position: relative; padding:0;} 
+#respond {overflow: hidden; position: relative; padding:0;}
 #respond p {	margin: 0 0 5px;}
-.children #respond { margin:0 0 50px; } 
-.depth-1  #respond {  margin:0 0 50px; } 
+.children #respond { margin:0 0 50px; }
+.depth-1  #respond {  margin:0 0 50px; }
 #reply-title {margin-top:50px; }
 .children #respond #reply-title {margin-top:20px; }
-#respond label {margin-bottom:3px; font-size:12px; font-weight:bold; display:block;} 
-#respond input, #respond textarea {margin: 0 0 9px; width: 60%; } 
+#respond label {margin-bottom:3px; font-size:12px; font-weight:bold; display:block;}
+#respond input, #respond textarea {margin: 0 0 9px; width: 60%; }
 #respond .form-submit input {width: auto;}
 #cancel-comment-reply-link {display:block; margin-top:30px;}
 #cancel-comment-reply-link i{font-size:16px; vertical-align: middle; padding-right:5px;}
@@ -549,7 +573,7 @@ blockquote.right {margin-left:20px; text-align:left; margin-right:0; width:33%; 
 .gallery img {border:none !important; -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;}
-.gallery img:hover {border:none !important; opacity:0.8; filter:alpha(opacity=80); 
+.gallery img:hover {border:none !important; opacity:0.8; filter:alpha(opacity=80);
 -webkit-transition: all 0.3s ease-in;
  -moz-transition: all 0.3s ease-in;
  -o-transition: all 0.3s ease-in;
@@ -597,7 +621,7 @@ border-radius: 5px;}
 
 /* Revolution Slider */
 .tp-caption.kickstart_button a, .tp-caption.kickstart_button a:hover{color:#ffffff; text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251) !important;}
-.tp-caption.kickstart_button:hover {color:#ffffff; 
+.tp-caption.kickstart_button:hover {color:#ffffff;
 background-image: -moz-linear-gradient(top,  rgba(255,255,255,0.23) 0%, rgba(255,255,255,0) 100%);
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.23)), color-stop(100%,rgba(255,255,255,0)));
 background-image: -webkit-linear-gradient(top,  rgba(255,255,255,0.23) 0%,rgba(255,255,255,0) 100%);
@@ -624,8 +648,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 	.default-logo {display:none;}
 	.retina-logo {display:inline-block;}
-	  
+
 	.tp-leftarrow.default {background-image:url(images/rev_slider_arrows@2x.png) !important; background-size: 80px 80px;}
 	.tp-rightarrow.default {background-image:url(images/rev_slider_arrows@2x.png) !important; background-size: 80px 80px;}
-  
+
 }
