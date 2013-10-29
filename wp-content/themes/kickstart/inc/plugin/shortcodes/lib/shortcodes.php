@@ -75,7 +75,7 @@
 				'include' => null,
 				'exclude' => null,
 				'num' => 4,
-				'orderby' => 'date',
+				'orderby' => 'title',
 				'order' => 'ASC',
 				'offset' => 0
 				), $atts ) );
