@@ -678,8 +678,8 @@
 				'include' => null,
 				'exclude' => null,
 				'num' => -1,
-				'orderby' => 'date',
-				'order' => 'DESC'
+				'orderby' => 'title',
+				'order' => 'ASC'
 				), $atts ) );
 
 
