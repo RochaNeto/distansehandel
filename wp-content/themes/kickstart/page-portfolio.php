@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
 Template Name: Portfolio
 **/
 ?>
@@ -15,11 +15,11 @@ Template Name: Portfolio
 				</div>
 			</div>
 		<?php endwhile; ?>
-		
+
 		<?php
 			$pf_item_category = get_post_meta($post->ID,'pf_item_category', true);
-			$item_columns = get_post_meta($post->ID, 'pf_item_columns', true); 
-			$item_count = get_post_meta($post->ID, 'pf_item_count', true); 
+			$item_columns = get_post_meta($post->ID, 'pf_item_columns', true);
+			$item_count = get_post_meta($post->ID, 'pf_item_count', true);
 		?>
 
 		<?php if (get_post_meta($post->ID,'pf_cat_filter', true) != 'hide') : ?>
@@ -28,7 +28,7 @@ Template Name: Portfolio
 					$pf_item_slugs = str_replace(', ', ',', $pf_item_category);
 					$pf_item_slugs = rtrim($pf_item_slugs, ',');
 					$pf_item_slugs =  explode(",", $pf_item_slugs);
-					
+
 					foreach ($pf_item_slugs as $pf_item_slug) {
 						$pf_show_only[] ='ul.pf-filter li a.'. $pf_item_slug;
 					}
@@ -39,7 +39,7 @@ Template Name: Portfolio
 			<ul class="pf-filter">
 				<li class="active"><a href="javascript:void(0)" class="all"><?php _e('All', 'kickstart'); ?></a></li>
 				<?php $terms = get_terms('portfolio_category');
-					$count = count($terms); 
+					$count = count($terms);
 					$i=0;
 					$term_list = '';
 					if ($count > 0) {
@@ -55,20 +55,20 @@ Template Name: Portfolio
 						echo $term_list;
 					}
 				?>
-				<div class="clear"></div>	
+				<div class="clear"></div>
 			</ul>
-		<?php endif; ?>	
+		<?php endif; ?>
 
 		<ul class="filterable-grid <?php echo $item_columns; ?>">
-			
-			<?php 
-			$paged = get_query_var('paged') ? get_query_var('paged') : 1;
-			$wpbp = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item_count, 'portfolio_category' => $pf_item_category, 'paged' => $paged)); 
 
-			if ($wpbp->have_posts()) : while ($wpbp->have_posts()) : $wpbp->the_post(); 
-		
-			$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); 
-			$large_image = $large_image[0]; 
+			<?php
+			$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+			$wpbp = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item_count, 'portfolio_category' => $pf_item_category, 'paged' => $paged, 'orderby' => 'title', 'order' => 'ASC'));
+
+			if ($wpbp->have_posts()) : while ($wpbp->have_posts()) : $wpbp->the_post();
+
+			$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' );
+			$large_image = $large_image[0];
 			$terms = wp_get_post_terms($post->ID, 'portfolio_category');
 			if ($item_columns == 'pf-four-columns' || $item_columns == 'pf-three-columns') {
 				$portfolio_img = aq_resize( $large_image, '460', '335', true );
@@ -78,15 +78,15 @@ Template Name: Portfolio
 				$portfolio_img = aq_resize( $large_image, '540', '270', true );
 			}
 			?>
-			
+
 			<li data-id="id-<?php echo $count; ?>" data-type="<?php foreach ($terms as $term) { echo $term->slug . ' ';} ?>">
 
 				<?php if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) : ?>
-					<img src="<?php echo $portfolio_img; ?>" />				
-				<?php endif; ?>	
-				
-				<?php if($item_columns == 'pf-one-column'){				
-					echo '<div class="pf-description">					
+					<img src="<?php echo $portfolio_img; ?>" />
+				<?php endif; ?>
+
+				<?php if($item_columns == 'pf-one-column'){
+					echo '<div class="pf-description">
 						<h3><a href="', the_permalink() .'">'. get_the_title() .'</a></h3>
 						<div class="pf-category">'. get_the_term_list( $post->ID, 'portfolio_category', '', ', ', '' ) .'</div>';
 							if (get_post_meta($post->ID, 'portfolio_html', true)) {
@@ -114,23 +114,23 @@ Template Name: Portfolio
 					</div><div class="pf-title">'. get_the_title() .'</div>';
 				} ?>
 			</li>
-					
-			<?php $count++; ?>		
+
+			<?php $count++; ?>
 			<?php endwhile; endif; ?>
 			<?php wp_reset_query(); ?>
 			<div class="clear"></div>
 		</ul>
-				
-				
+
+
 		<div class="post-navigation">
-			<?php 
+			<?php
 				if ( function_exists('wp_pagenavi')) {
 						wp_pagenavi(array( 'query' => $wpbp ) );
 						wp_reset_postdata();	// avoid errors further down the page
-				} 
+				}
 			?>
 		</div>
-		
+
 	<div class="clear"></div>
 	</div><!-- #content-->
 </div><!--#container-->
