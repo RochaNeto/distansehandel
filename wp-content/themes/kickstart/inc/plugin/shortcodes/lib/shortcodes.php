@@ -15,7 +15,7 @@
 
 		return '<div class="heading-wrapper"><h6><span class="heading-line-left"></span><strong>' . do_shortcode( $content ) . '</strong><span class="heading-line-right"></span></h6></div>';
 	}
-
+		
 	/**
 	 * Shortcode: service
 	 *
@@ -29,12 +29,12 @@
 				'size' => '25',
 				'icon' => 'moon-checkmark'
 				), $atts ) );
-
-		$margin_left = $size + 25;
+		
+		$margin_left = $size + 25;		
 
 		return '<div class="service-box"><i style="font-size:' . $size . 'px;" class="' . $icon . '"></i><div class="service-content" style="margin-left:' . $margin_left .'px;"><h5>' . $title . '</h5>' . do_shortcode( $content ) . '</div></div>';
 	}
-
+	
 	/**
 	 * Shortcode: clients
 	 *
@@ -48,15 +48,15 @@
 				'link' => '',
 				'align' => 'center'
 				), $atts ) );
-
+				
 		$return = '';
-
+		
 		if ($link){ $return .= '<div class="client-wrapper" style="text-align:'. $align .'"><a href="'. $link .'">'; } else { $return .= '<div class="client-wrapper" style="text-align:'. $align .'">'; }
 
 		$return .= '<img src="'. $logo .'" alt="" />';
-
+		
 		if ($link){ $return .= '</a></div>'; } else { $return .= '</div>'; }
-
+		
 		return $return;
 	}
 
@@ -75,12 +75,12 @@
 				'include' => null,
 				'exclude' => null,
 				'num' => 4,
-				'orderby' => 'title',
-				'order' => 'ASC',
+				'orderby' => 'date',
+				'order' => 'DESC',
 				'offset' => 0
 				), $atts ) );
 
-
+	
 		global $post;
 		$args = array(
 			'post_type' => $post_type,
@@ -100,28 +100,28 @@
                 setup_postdata($post);
 				global $more;
                 $more = 0;
+				
+				$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); 
+				$large_image = $large_image[0]; 
+				$image = aq_resize( $large_image, '460', '537', true ); 
 
-				$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' );
-				$large_image = $large_image[0];
-				$image = aq_resize( $large_image, '460', '537', true );
-
-
+								
 				$return .= '<li>';
-
+				
 				if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
-					$return .= '<img src="'. $image .'" alt="" />';
+					$return .= '<img src="'. $image .'" alt="" />'; 
 				}
 
 				$return .= '<div class="mask">';
-
+				
 				if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
 					$return .= '<a href="'. get_post_meta($post->ID, 'portfolio_video_link', true) .'" class="pf-zoom"><i class="moon-movie"></i></a>';
 				} else {
 					$return .= '<a href="'. $large_image .'" class="pf-zoom"><i class="moon-camera-3"></i></a>';
 				}
-
+				
 				$return .= '<a href="'. get_permalink() .'" class="pf-info"><i class="moon-link-4"></i></a></div>';
-
+				
 				$return .= '<div class="pf-title">'. get_the_title() .'</div>';
 				$return .= '</li>';
 			endforeach;
@@ -131,7 +131,7 @@
 
 		return $return;
 	}
-
+	
 	/**
 	 * Shortcode: background block
 	 *
@@ -149,13 +149,13 @@
 				'padding_top' => 40,
 				'padding_bottom' => 40
 				), $atts ) );
-
+		
 		$bg_image = ( $image ) ? 'background-image:url(' . $image . ');' : '';
-
+				
 		return '<div class="background-block" style="background-color:' . $color .'; '. $bg_image .' margin-top:' . $margin_top . 'px; margin-bottom:' . $margin_bottom . 'px; padding-top:' . $padding_top . 'px; padding-bottom:' . $padding_bottom . 'px; text-align:' . $align . ';"><div class="background-block-container">' . do_shortcode( $content ) . '</div></div>';
 	}
-
-
+	
+	
 	/**
 	 * Shortcode: testimonials_slider
 	 *
@@ -164,10 +164,10 @@
 	 * @return string Output html
 	 */
 	function su_testimonials_slider_shortcode( $atts = null, $content = null ) {
-
+		
 		return '<div class="testimonials-slider">' . su_do_shortcode( $content, 't' ) . '</div>';
 	}
-
+	
 	/**
 	 * Shortcode: testimonial
 	 *
@@ -176,15 +176,15 @@
 	 * @return string Output html
 	 */
 	function su_testimonial_shortcode( $atts, $content ) {
-		extract( shortcode_atts( array(
-				'author' => 'Author Name'
+		extract( shortcode_atts( array( 
+				'author' => 'Author Name' 
 				), $atts ) );
 
 		$return = '<div class="testimonial-wrapper"><div class="testimonial-content">' . $content . '</div><div class="testimonial-arrow"></div><div class="testimonial-author"><i class="moon-user-6"></i>' . $author . '</div></div>';
-
+		
 		return $return;
 	}
-
+	
 	/**
 	 * Shortcode: Testimonial with image
 	 *
@@ -193,13 +193,13 @@
 	 * @return string Output html
 	 */
 	function su_img_testimonial_shortcode( $atts, $content ) {
-		extract( shortcode_atts( array(
-				'img' => '#',
-				'author' => 'Author Name'
+		extract( shortcode_atts( array( 
+				'img' => '#', 
+				'author' => 'Author Name' 
 				), $atts ) );
 
 		$return = '<div class="big-testimonial-wrapper"><div class="big-testimonial-image"><img src="'. aq_resize( $img, '230', '230', true ) .'" alt="" /></div><div class="big-testimonial-content">' . $content . '<span>' . $author . '</span></div><div class="clear"></div></div>';
-
+		
 		return $return;
 	}
 
@@ -305,10 +305,10 @@
 		} else {
 			$return = '<div class="divider" style="border-color:' . $color . ';"></div>';
 		};
-
+		
 		return $return;
 	}
-
+	
 	/**
 	 * Shortcode: spacer
 	 *
@@ -473,7 +473,7 @@
 
 		return '<div class="su-note" style="background-color:' . $styles['light_color'] . ';border:1px solid ' . $styles['dark_color'] . '"><div class="su-note-shell" style="border:1px solid ' . $styles['extra_light_color'] . '; color:' . $styles['text_color'] . '">' . do_shortcode( $content ) . '</div></div>';
 	}
-
+	
 	/**
 	 * Shortcode: call out
 	 *
@@ -490,14 +490,14 @@
 				'button_icon' => '',
 				'button_url' => '#'
 				), $atts ) );
-
-		if ($add_button == 'yes') {
-			$b_icon = ( $button_icon ) ? '<i class="' . $button_icon . '"></i>' : '';
+				
+		if ($add_button == 'yes') { 
+			$b_icon = ( $button_icon ) ? '<i class="' . $button_icon . '"></i>' : '';	
 			$button = '<a href="' . $button_url . '" class="su-button callout-button" style="background-color:'. $button_color .'">' . $b_icon . $button_text . '</a>';
-		} else { $button = ''; }
+		} else { $button = ''; }			
 
 		$return = '<div class="su-callout"><div class="callout-content">' . do_shortcode( $content ) .'</div>'. $button .'<div class="clear"></div></div>';
-
+		
 		return $return;
 	}
 
@@ -557,7 +557,7 @@
 
 				$title = apply_filters( 'the_title', $attachment->post_title );
 				$url = wp_get_attachment_image_src( $attachment->ID, 'full', false );
-				$image = aq_resize( $url[0], $width, $height, true );
+				$image = aq_resize( $url[0], $width, $height, true ); 
 
 				// Link to file
 				if ( $link == 'file' ) {
@@ -678,11 +678,11 @@
 				'include' => null,
 				'exclude' => null,
 				'num' => -1,
-				'orderby' => 'title',
-				'order' => 'ASC'
+				'orderby' => 'date',
+				'order' => 'DESC'
 				), $atts ) );
 
-
+	
 		global $post;
 		$args = array(
 			'post_type' => $post_type,
@@ -713,7 +713,7 @@
 						 });
 					});
 				</script>
-			';
+			';	
 
 			if (ot_get_option('responsive_layout') == 'responsive_mobile' || ot_get_option('responsive_layout') == 'responsive_all' ) {
 			$return .='<style>
@@ -721,18 +721,18 @@
 				.mobile-' . $carousel_id . '{
 				height: ' . round($height*0.469-2) . 'px !important;
 				width: ' . round($width*0.469-2) . 'px !important;
-				}
-				.mobile-' . $carousel_id . ' img, .mobile-' . $carousel_id . ' .jcarousel-container li {
+				}				
+				.mobile-' . $carousel_id . ' img, .mobile-' . $carousel_id . ' .jcarousel-container li { 
 				width: ' . round($item_width*0.469-2) . 'px !important;
 				height: auto !important;
-				}
+				}				
 			}
 			@media only screen and (max-width: 479px) {
 				.mobile-' . $carousel_id . '{
 				height: ' . round($height*0.3-2) . 'px !important;
 				width: ' . round($width*0.3-2) . 'px !important;
-				}
-				.mobile-' . $carousel_id . ' .jcarousel-list img, .mobile-' . $carousel_id . ' .jcarousel-container li {
+				}				
+				.mobile-' . $carousel_id . ' .jcarousel-list img, .mobile-' . $carousel_id . ' .jcarousel-container li { 
 				width: ' . round($item_width*0.3-2) . 'px !important;
 				height: auto !important;
 				}
@@ -743,11 +743,11 @@
 				.mobile-' . $carousel_id . ', .mobile-' . $carousel_id . ' .jcarousel-container{
 				height: ' . round($height*0.74+2) . 'px !important;
 				width: ' . round($width*0.74+2) . 'px !important;
-				}
-				.mobile-' . $carousel_id . ' img, .mobile-' . $carousel_id . ' .jcarousel-container li {
+				}				
+				.mobile-' . $carousel_id . ' img, .mobile-' . $carousel_id . ' .jcarousel-container li { 
 				width: ' . round($item_width*0.74+2) . 'px !important;
 				height: ' . round($height*0.74+2) . 'px !important;
-				}
+				}				
 			}</style>';
 			} else { $return .='</style>';}
 
@@ -757,19 +757,19 @@
                 setup_postdata($post);
 				global $more;
                 $more = 0;
-
+				
 				if (strlen($post->post_title) > 30) {
 				$title = substr(get_the_title($before = '', $after = '', FALSE), 0, 30) . '...'; } else {
 				$title = get_the_title();}
-
+				
 				$url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-				$image = aq_resize( $url[0], $item_width, $height, true );
+				$image = aq_resize( $url[0], $item_width, $height, true ); 
 
 				$return .= '<li style="width:' . $item_width . 'px; height:' . $height . 'px; margin-right:' . $margin . 'px">';
 
 				$return .= '<img src="' . $image . '" width="' . $item_width . '" height="' . $height . '" alt="'. get_the_title() .'" />
 				<a href="' . get_permalink() . '" title="'. get_the_title() .'"><div class="fp_mask"></div><div class="fp_title">'. $title .'</div></a>';
-
+			
 				$return .= '</li>';
 			endforeach;
 			wp_reset_query();
@@ -778,7 +778,7 @@
 
 		return $return;
 	}
-
+	
 	/**
 	 * Shortcode: Post shortcode
 	 *
@@ -801,92 +801,92 @@
 				'paging' => false
 				), $atts ) );
 
-		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+		$paged = get_query_var('paged') ? get_query_var('paged') : 1;  
 
-		query_posts(  array (
-			'posts_per_page' => $limit,
+		query_posts(  array ( 
+			'posts_per_page' => $limit, 
 			'tag' => $tag,
 			'p' => $id,
 			'category_name' => $category,
-			'post_type' => $post_type,
-			'order' => $order,
+			'post_type' => $post_type, 
+			'order' => $order, 
 			'orderby' => $orderby,
-			'offset' => $offset,
+			'offset' => $offset,			
 			'paged' => $paged ) );
 
 		global $more;
         $more = 0;
 		$inner = '';
 		$count = 0;
-
+		
 		while ( have_posts() ) : the_post();
 		$count++;
-
-		if( $count == 3  ){
+		
+		if( $count == 3  ){ 
 			$add_class = 'column column-1-3 column-last';
-			$count = 0;
+			$count = 0;			
 		} else {
-			$add_class = 'column column-1-3';
+			$add_class = 'column column-1-3';	
 		}
 
-
+				
 			// Content
 			if ( $type == 'excerpt' ) {
 				$title = '<h2 class="post-title"><a href="'. get_permalink() .'">'.the_title("","",false).'</a></h2>';
 				$meta = '<div class="blog-entry-date"><span>'. get_the_time('M') .'</span>'. get_the_time('j') .'</div>';
 				$content = apply_filters('the_excerpt', get_excerpt($excerpt_words) );
-
+				
 				$output = '<div class="latest-blog-entry">'. $meta .'<div class="blog-entry-content">'. $title . $content . '</div></div>';
 				$inner .= apply_filters( 'display_posts_shortcode_output', $output, $atts, $title, $meta, $content );
-
+				
 			} elseif ( $type == 'thumbnail-excerpt' ) {
 				if ( has_post_format('video') ||  has_post_format('audio')) {
 					$thumb = get_post_meta(get_the_ID(), 'post_embed', true);
 				} elseif ( has_post_format('gallery')){
 					$thumb = do_shortcode('[nivo_slider width="650" height="360" navigation="1" speed="900" delay="4000" bullets="0" effect="fade"]');
 				} else {
-					$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' );
-					$large_image = $large_image[0];
+					$large_image =  wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'fullsize', false, '' ); 
+					$large_image = $large_image[0]; 
 					$thumb = '<a href="'. get_permalink() .'"><img class="blog-entry-img" src="'. aq_resize( $large_image, '650', '360', true ) .'" /></a>';
 
 				}
-
+				
 				$title = '<h2 class="post-title"><a href="'. get_permalink() .'">'.the_title("","",false).'</a></h2>';
 				$content = apply_filters('the_excerpt', get_excerpt($excerpt_words) );
-
+				
 				$output = '<div class="latest-blog-entry-thumb '. $add_class .'">'. $thumb .'<div class="blog-entry-content">'. $title . $content . '</div></div>';
 				$inner .= apply_filters( 'display_posts_shortcode_output', $output, $atts, $thumb, $title, $meta, $content );
 
 			} else {
-				ob_start();
+				ob_start(); 
 				get_template_part( 'content', get_post_format() );
-				$inner .= ob_get_contents();
+				$inner .= ob_get_contents();  
 				ob_end_clean();
 			}
-
+				
 		endwhile;
-
+	
 	if ( $paging == 'true') {
 		ob_start();
 		wp_pagenavi();
 		$pagenavi = ob_get_contents();
-		ob_end_clean();
-	} else {
+		ob_end_clean();	
+	} else { 
 		$pagenavi = '';
 	}
-
+	
 	wp_reset_query();
-
+	
 	if ( $type == 'thumbnail-excerpt' ) {
 		$return = $inner .'<div class="clear"></div>'.  $pagenavi;
-	} else {
+	} else { 
 		$return = $inner . $pagenavi;
-	}
+	}	
 
 	return $return;
 
 	}
-
+	
 	/**
 	 * Shortcode: staff
 	 *
@@ -900,12 +900,12 @@
 				'position' => 'Job title',
 				'img' => ''
 				), $atts ) );
-
-		$image = aq_resize( $img, 440, 300);
+				
+		$image = aq_resize( $img, 440, 300);		
 
 		return '<div class="staff-wrapper"><img src="'. $image .'" alt=""/><div class="person-name">'. $name .'<i class="moon-users-2"></i></div><div class="person-title">' . $position .'</div><div class="person-description">'. do_shortcode( $content ) .'</div></div>';
 	}
-
+		
 	/**
 	 * Shortcode: skill
 	 *
@@ -917,11 +917,11 @@
 		extract( shortcode_atts( array(
 				'title' => 'WordPress',
 				'level' => '90'
-				), $atts ) );
+				), $atts ) );		
 
 		return '<div class="skillbar-title">'. $title . ' <span>'. $level .'%</span></div><div class="skillbar-wrapper" data-perc="'. $level .'"><div class="skillbar"></div></div>';
 	}
-
+	
 	/**
 	 * Shortcode: tweets
 	 *
@@ -931,9 +931,9 @@
 	 */
 	function su_tweets_shortcode( $atts, $content=null ) {
 		shortcode_atts(array(
-		'username'=> null,
-		'list'=> null,
-		'query' => null,
+		'username'=> null, 
+		'list'=> null, 
+		'query' => null, 
 		'limit' => null
 		), $atts);
 		$tweet_class = uniqid( 'content_tweets_' );
@@ -941,9 +941,9 @@
 		$options .= (($atts['limit'])?'limit:'.$atts['limit'].',':'');
 		$options .= (($atts['query'])?'query:"'.$atts['query'].'",':'');
 		$options .= (($atts['list'])?'list:"'.$atts['list'].'",':'');
-
-	return '<div class="tweets">
-				<div class="'. $tweet_class. '"> </div>
+	
+	return '<div class="tweets"> 
+				<div class="'. $tweet_class. '"> </div> 
 			</div>
 			<script type="text/javascript">
 				jQuery(".'. $tweet_class .'").miniTwitter({
@@ -952,7 +952,7 @@
 				});
 			</script>';
 }
-
+	
 	/**
 	 * Shortcode: dropcap
 	 */
@@ -961,10 +961,10 @@
 		'bg' => '#222',
 		'color' => '#fff'
 	), $atts));
-
+	
 		return '<span class="su-dropcap" style="background-color:' . $bg . '; color:' . $color . ';">'. $content .'</span>';
 	}
-
+	
 	/**
 	 * Shortcode: list
 	 */
@@ -973,19 +973,19 @@
 		'icon' => '',
 		'color' => ''
 	), $atts));
-
+	
 		return '<div class="custom-list"><i class="'. $icon .'" style="color:'. $color .';"></i>' . do_shortcode( $content ) . '</div>';
 	}
 
-
+	
 	/**
 	 * Div clear - shortcode
 	 */
 	function su_clear_shortcode() {
 		 return '<div class="clear"></div>';
 	}
-
-
+	
+		
 	/**
 	 * Break - shortcode
 	 */
@@ -993,7 +993,7 @@
 		 return '<br />';
 	}
 	add_shortcode('br', 'break_shortcode');
-
+	
 	/**
 	 * Shortcode: Pricing box
 	 *
@@ -1015,21 +1015,21 @@
 			'dark_color' => su_hex_shift( $color, 'darker', 20 ),
 			'extra_light_color' => su_hex_shift( $color, 'lighter', 50 ),
 		);
-
+		
 		$return = '<div class="pricing-box-wrapper">';
-
+		
 		$return .= '<div class="pricing-box-header" style="background-color:' . $color . '"><h3 class="pricing-box-title" style="border-color: ' . $styles['dark_color'] . ';"> ' . $title . '</h3>';
-
+		
 		$return .= '<span class="pricing-box-currency">' . $currency . '</span>
 		<span class="pricing-box-value">'. $price . '</span>
 		<span class="pricing-box-period">' . $period . '</span>
 		<div class="pricing-box-info" style="color: ' . $styles['extra_light_color'] . ';">' . $slug . '</div>
 		</div>';
-
+		
 		$return .= '<div class="pricing-box-content">' . do_shortcode( $content ) . '</div>';
-
+		
 		$return .= '</div>';
-
+		
 
 		return $return;
 	}
