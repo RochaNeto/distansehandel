@@ -657,3 +657,116 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 .blog-entry-img {max-width:30%; float: left; margin-right: 20px;}
 
+
+
+/*---------------------------------------------------------------*/
+/* Form styling - medlem, nettbutikk, businesspartner
+/*---------------------------------------------------------------*/
+
+/** Contact forms **/
+.ninja-forms-form-wrap label {
+  display: block;
+  margin-left: 10px;
+}
+.ninja-forms-form-wrap input[type="text"] {
+  display: block;
+  width: 100%;
+}
+.ninja-forms-form-wrap input[type="checkbox"] {
+  height: auto;
+}
+.ninja-forms-form-wrap h4 {
+  margin-bottom: 5px;
+}
+.ninja-forms-form-wrap h4 p {
+  margin-bottom: 5px;
+}
+.ninja-forms-form-wrap p em, .ninja-forms-form-wrap p i {
+  margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+
+  .ninja-forms-form-wrap h4 {
+    position: absolute;
+    z-index: 10;
+    margin-top: 4px;
+    margin-bottom: 10px;
+  }
+  .ninja-forms-form-wrap p em, .ninja-forms-form-wrap p i {
+    position: absolute;
+    z-index: 20;
+    margin-top: 25px;
+    margin-left: 0;
+    width: 200px;
+  }
+
+  .ninja-forms-form-wrap .field-wrap {
+    margin-left: 120px;
+  }
+  .ninja-forms-form-wrap label {
+    display: inline-block;
+    width: 250px;
+    text-align: right;
+  }
+  .ninja-forms-form-wrap input[type="text"] {
+    display: inline-block;
+    width: 280px;
+  }
+
+  .ninja-forms-form-wrap .field-wrap p em {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+  }
+  .ninja-forms-form-wrap .ninja-forms-field-description {
+    margin-left: 265px;
+    width: auto;
+  }
+
+  /* Check boxes */
+  .ninja-forms-form-wrap ul {
+    display: block;
+    margin-left: 160px !important;
+  }
+  .ninja-forms-form-wrap ul li {
+    width: 40%;
+    float: left;
+  }
+  .ninja-forms-form-wrap ul li label {
+    text-align: left;
+    width: 100%;
+  }
+  .ninja-forms-form-wrap ul li input {
+    height: auto;
+  }
+
+  /* Text Areas */
+  #ninja_forms_field_42_label, #ninja_forms_field_38_label {
+    width: 400px;
+    margin-left: 170px;
+    text-align: left;
+  }
+  #ninja_forms_field_45_div_wrap, #ninja_forms_field_48_div_wrap {
+    margin-left: 280px;
+  }
+  #ninja_forms_field_45_div_wrap label, #ninja_forms_field_48_div_wrap label {
+    text-align: left;
+  }
+
+  /* Bottom */
+  #ninja_forms_field_51_div_wrap, #ninja_forms_field_53_div_wrap {
+    margin-left: 0;
+  }
+  #ninja_forms_field_51_label {
+    width: auto;
+  }
+  #ninja_forms_field_51 {
+    height: auto;
+  }
+  #ninja_forms_field_53_div_wrap .ninja-forms-field-description {
+    width: auto;
+    margin-left: 0 !important;
+  }
+
+}
