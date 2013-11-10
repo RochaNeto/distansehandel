@@ -1,8 +1,8 @@
 <?php
-/*	
+/*
 *	---------------------------------------------------------------------
 *	MNKY Functions
-*	--------------------------------------------------------------------- 
+*	---------------------------------------------------------------------
 */
 
 // Define directories
@@ -44,5 +44,9 @@ include_once(MNKY_PLUGIN . '/widgets/recent-posts-widget.php');
 include_once(MNKY_PLUGIN . '/widgets/side-menu-widget.php');
 include_once(MNKY_PLUGIN . '/mobile-detect.php');
 
+function excerpt_ellipse($text) {
+  return str_replace('(mer...)', ' <a href="'.get_permalink().'">(mer...)</a>', $text);
+}
+add_filter('the_excerpt', 'excerpt_ellipse');
 
 ?>
