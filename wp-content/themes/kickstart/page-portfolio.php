@@ -104,13 +104,17 @@ Template Name: Portfolio
 						}
 						echo '</div>';
 				} else {
+					$item_link = get_post_meta($post->ID, 'portfolio_video_link', true);
+					if(!$item_link) {
+						$item_link = the_permalink();
+					}
 					echo '<div class="mask">';
-						if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
-							echo '<a href="', get_post_meta($post->ID, 'portfolio_video_link', true) .'" class="pf-zoom"><i class="moon-movie"></i></a>';
-						} else {
+						// if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
+						// 	echo '<a href="', get_post_meta($post->ID, 'portfolio_video_link', true) .'" class="pf-zoom"><i class="moon-movie"></i></a>';
+						// } else {
 							echo '<a href="', $large_image .'" class="pf-zoom"><i class="moon-camera-3"></i></a>';
-						}
-						echo '<a href="', the_permalink() .'" class="pf-info"><i class="moon-link-4"></i></a>
+						// }
+						echo '<a href="', $item_link .'" class="pf-info"><i class="moon-link-4"></i></a>
 					</div><div class="pf-title">'. get_the_title() .'</div>';
 				} ?>
 			</li>
