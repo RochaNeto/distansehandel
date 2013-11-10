@@ -101,7 +101,7 @@ function get_excerpt($limit) {
   $excerpt = explode(' ', $excerpt, $limit);
   if (count($excerpt)>=$limit) {
     array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt).' <a href="'.get_permalink().'">(Mer...)</a>';
+    $excerpt = implode(" ",$excerpt).' [LINK]';
   } else {
     $excerpt = implode(" ",$excerpt);
   }
