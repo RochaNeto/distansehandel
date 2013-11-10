@@ -95,16 +95,17 @@ add_filter('pre_get_posts', 'excludeCat');
 
 /* Custom excerpts */
 function get_excerpt($limit) {
-  $excerpt = get_the_content('(Mer...)');
+  $excerpt = get_the_content('[LINK]');
   $excerpt = strip_shortcodes($excerpt);
-  // $excerpt = strip_tags($excerpt);
+  $excerpt = strip_tags($excerpt);
   $excerpt = explode(' ', $excerpt, $limit);
   if (count($excerpt)>=$limit) {
     array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt).'&nbsp;...';
+    $excerpt = implode(" ",$excerpt).' <a href="'.get_permalink().'">(Mer...)</a>';
   } else {
     $excerpt = implode(" ",$excerpt);
   }
+  $excerpt = str_replace('[LINK]', '<a href="'.get_permalink().'">(Mer...)</a>', $excerpt);
   return $excerpt;
 }
 
