@@ -99,14 +99,14 @@ Template Name: Portfolio
 								echo '<p>', get_excerpt(65) .'</p>';
 							}
 						echo '<div class="link-button"><a href="', the_permalink() .'">'. __('Learn More', 'kickstart') .'</a></div>
-					</div>
-					<div class="mask">';
-						if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
-							echo '<a href="', get_post_meta($post->ID, 'portfolio_video_link', true) .'" class="pf-zoom"><i class="moon-movie"></i></a>';
-						} else {
-							echo '<a href="', $large_image .'" class="pf-zoom"><i class="moon-camera-3"></i></a>';
-						}
-						echo '</div>';
+					</div>';
+					// echo '<div class="mask">';
+					// 	if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
+					// 		echo '<a href="', get_post_meta($post->ID, 'portfolio_video_link', true) .'" class="pf-zoom"><i class="moon-movie"></i></a>';
+					// 	} else {
+					// 		echo '<a href="', $large_image .'" class="pf-zoom"><i class="moon-camera-3"></i></a>';
+					// 	}
+					// 	echo '</div>';
 				} else {
 					// echo '<div class="mask">';
 					// 	if (get_post_meta($post->ID, 'portfolio_video_link', true)) {
