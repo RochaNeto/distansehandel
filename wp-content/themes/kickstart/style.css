@@ -811,26 +811,27 @@ only screen and (min-device-pixel-ratio: 1.5) {
 }
 .blog-entry-img {
   width: 100% !important;
+  max-width: 100% !important;
 }
 @media (min-width: 481px) and (max-width: 768px) {
   .blog-entry-img {
     width: 220px !important;
-    max-width: 122px !important;
-    width: 220px !important;
+    max-width: 220px !important;
+    height: 122px !important;
   }
 }
 @media (min-width: 769px) {
   .blog-entry-img {
     width: 135px !important;
+    max-width: 135px !important;
     height: 75px !important;
-    width: 135px !important;
   }
 }
 @media (min-width: 980px) {
   .blog-entry-img {
     width: 187px !important;
+    max-width: 187px !important;
     height: 104px !important;
-    width: 187px !important;
   }
 }
 
