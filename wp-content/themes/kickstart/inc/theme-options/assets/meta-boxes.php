@@ -1,6 +1,6 @@
 <?php
 /**
- * Initialize the meta boxes. 
+ * Initialize the meta boxes.
  */
 add_action( 'admin_init', '_custom_meta_boxes' );
 
@@ -24,7 +24,7 @@ function _custom_meta_boxes() {
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
           array(
             'value'       => '',
             'label'       => 'Title',
@@ -66,9 +66,9 @@ function _custom_meta_boxes() {
       )
   	)
   );
-  
+
 ot_register_meta_box( $header_opt_meta_box );
-	
+
   $advanced_opt_meta_box = array(
     'id'          => 'advanced_opt_meta_box',
     'title'       => 'Advanced options',
@@ -91,7 +91,7 @@ ot_register_meta_box( $header_opt_meta_box );
       )
   	)
   );
-  
+
 ot_register_meta_box( $advanced_opt_meta_box );
 
 $format_opt_meta_box = array(
@@ -113,7 +113,7 @@ $format_opt_meta_box = array(
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
           array(
             'value'       => 'enable_full_width_posts',
             'label'       => 'Enable full width for this post',
@@ -132,7 +132,7 @@ $format_opt_meta_box = array(
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
           array(
             'value'       => 'right',
             'label'       => 'Right',
@@ -171,9 +171,9 @@ $format_opt_meta_box = array(
       )
   	)
   );
-  
+
 ot_register_meta_box( $format_opt_meta_box );
-  
+
 $portfolio_opt_meta_box = array(
     'id'          => 'portfolio_opt_meta_box',
     'title'       => 'Portfolio options',
@@ -205,7 +205,7 @@ $portfolio_opt_meta_box = array(
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
           array(
             'value'       => 'pf-one-column',
             'label'       => 'One column',
@@ -266,7 +266,7 @@ $portfolio_opt_meta_box = array(
       )
 	)
   );
-  
+
 ot_register_meta_box( $portfolio_opt_meta_box );
 
 $portfolio_post_opt_meta_box = array(
@@ -279,7 +279,7 @@ $portfolio_post_opt_meta_box = array(
     'fields'      => array(
       array(
         'id'          => 'portfolio_video_link',
-        'label'       => 'Video link',
+        'label'       => 'External link',
         'desc'        => '',
         'std'         => '',
         'type'        => 'text',
@@ -303,6 +303,6 @@ $portfolio_post_opt_meta_box = array(
       )
 	)
   );
-  
+
 ot_register_meta_box( $portfolio_post_opt_meta_box );
 }
