@@ -288,19 +288,19 @@ $portfolio_post_opt_meta_box = array(
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => ''
-      ),
-      array(
-        'id'          => 'portfolio_html',
-        'label'       => 'HTML description (Only for one column portfolio)',
-        'desc'        => '',
-        'std'         => '',
-        'type'        => 'textarea-simple',
-        'section'     => '',
-        'rows'        => '6',
-        'post_type'   => '',
-        'taxonomy'    => '',
-        'class'       => ''
       )
+      // array(
+      //   'id'          => 'portfolio_html',
+      //   'label'       => 'HTML description (Only for one column portfolio)',
+      //   'desc'        => '',
+      //   'std'         => '',
+      //   'type'        => 'textarea-simple',
+      //   'section'     => '',
+      //   'rows'        => '6',
+      //   'post_type'   => '',
+      //   'taxonomy'    => '',
+      //   'class'       => ''
+      // )
 	)
   );
 
