@@ -97,7 +97,7 @@ add_filter('pre_get_posts', 'excludeCat');
 function get_excerpt($limit) {
   $excerpt = get_the_content('(Mer...)');
   $excerpt = strip_shortcodes($excerpt);
-  $excerpt = strip_tags($excerpt);
+  // $excerpt = strip_tags($excerpt);
   $excerpt = explode(' ', $excerpt, $limit);
   if (count($excerpt)>=$limit) {
     array_pop($excerpt);
