@@ -81,8 +81,12 @@ Template Name: Portfolio
 
 			<li data-id="id-<?php echo $count; ?>" data-type="<?php foreach ($terms as $term) { echo $term->slug . ' ';} ?>">
 
-				<?php if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) : ?>
+				<?php
+				$item_link = get_post_meta($post->ID, 'portfolio_video_link', true);
+				if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) : ?>
+					<?php if($item_link) {echo '<a href="'.$item_link.'" target="_blank">';} ?>
 					<img src="<?php echo $portfolio_img; ?>" />
+					<?php if($item_link) {echo '</a>';} ?>
 				<?php endif; ?>
 
 				<?php if($item_columns == 'pf-one-column'){
