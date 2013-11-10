@@ -1,8 +1,8 @@
 <?php
-/*	
+/*
 *	---------------------------------------------------------------------
 *	MNKY Theme Setup
-*	--------------------------------------------------------------------- 
+*	---------------------------------------------------------------------
 */
 
 remove_action( 'wp_head', 'feed_links_extra'); // Display the links to the extra feeds such as category feeds
@@ -28,10 +28,10 @@ register_nav_menus( array(
 add_filter('widget_text', 'do_shortcode');
 
 // Fix shortcodes auto-formatting
-function wpex_fix_shortcodes($content){   
+function wpex_fix_shortcodes($content){
 	$array = array (
-		'<p>[' => '[', 
-		']</p>' => ']', 
+		'<p>[' => '[',
+		']</p>' => ']',
 		']<br />' => ']'
 	);
 
@@ -54,7 +54,7 @@ function custom_login_head() {
 	$login_logo = ot_get_option('login_logo');
 	if($login_logo){
 	echo "
-		<style> 
+		<style>
 		body.login #login h1 a {
 		background: url('" . ot_get_option('login_logo') . "') no-repeat scroll center bottom transparent;
 		height: 80px;
@@ -95,16 +95,16 @@ add_filter('pre_get_posts', 'excludeCat');
 
 /* Custom excerpts */
 function get_excerpt($limit) {
-  $excerpt = get_the_content();
+  $excerpt = get_the_content('(Mer...)');
   $excerpt = strip_shortcodes($excerpt);
-  $excerpt = strip_tags($excerpt); 
+  $excerpt = strip_tags($excerpt);
   $excerpt = explode(' ', $excerpt, $limit);
   if (count($excerpt)>=$limit) {
     array_pop($excerpt);
     $excerpt = implode(" ",$excerpt).'&nbsp;...';
   } else {
     $excerpt = implode(" ",$excerpt);
-  }	
+  }
   return $excerpt;
 }
 
@@ -120,9 +120,9 @@ function enable_more_buttons($buttons) {
 add_filter("mce_buttons_2", "enable_more_buttons");
 
 /* Validation for category tag */
-add_filter( 'the_category', 'add_nofollow_cat' ); 
-function add_nofollow_cat( $text ) { 
-$text = str_replace('rel="category tag"', "", $text); return $text; 
+add_filter( 'the_category', 'add_nofollow_cat' );
+function add_nofollow_cat( $text ) {
+$text = str_replace('rel="category tag"', "", $text); return $text;
 }
 
 /* Languages */
@@ -144,9 +144,9 @@ function hex2rgb($hex) {
       $g = hexdec(substr($hex,2,2));
       $b = hexdec(substr($hex,4,2));
    }
-   
+
    $rgb = array($r, $g, $b);
-   return implode(",", $rgb); 
+   return implode(",", $rgb);
 }
 
 /* Add editor style */
