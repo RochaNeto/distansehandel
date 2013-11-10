@@ -852,7 +852,7 @@
 				}
 
 				$title = '<h2 class="post-title"><a href="'. get_permalink() .'">'.the_title("","",false).'</a></h2>';
-				$content = get_excerpt($excerpt_words);
+				$content = apply_filters('the_excerpt', get_excerpt($excerpt_words) );
 
 				$output = '<div class="latest-blog-entry-thumb '. $add_class .'">'. $thumb .'<div class="blog-entry-content">'. $title . $content . '</div></div>';
 				$inner .= apply_filters( 'display_posts_shortcode_output', $output, $atts, $thumb, $title, $meta, $content );
