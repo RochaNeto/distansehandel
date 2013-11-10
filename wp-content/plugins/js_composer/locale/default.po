@@ -1607,7 +1607,7 @@ msgstr ""
 
 #: config/map.php:1152
 msgid "Video link"
-msgstr ""
+msgstr "External link"
 
 #: config/map.php:1156
 msgid ""
