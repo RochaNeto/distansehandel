@@ -58,6 +58,18 @@ function ninja_forms_register_label_settings_metabox(){
 				'desc' => '',
 			),
 			array(
+			 	'name' => 'timed_submit_error',
+				'type' => 'text',
+				'label' => __( 'Timer error message', 'ninja-forms' ),
+				'desc' => '',
+			),
+			array(
+				'name' => 'javascript_error',
+				'type' => 'text',
+				'label' => __( 'JavaScript disabled error message', 'ninja-forms' ),
+				'desc' => '',
+			),
+			array(
 			 	'name' => 'invalid_email',
 				'type' => 'text',
 				'label' => __( 'Please enter a valid email address', 'ninja-forms' ),

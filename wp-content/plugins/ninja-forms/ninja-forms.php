@@ -3,7 +3,7 @@
 Plugin Name: Ninja Forms
 Plugin URI: http://ninjaforms.com/
 Description: Ninja Forms is a webform builder with unparalleled ease of use and features.
-Version: 2.2.56
+Version: 2.3
 Author: The WP Ninjas
 Author URI: http://ninjaforms.com
 Text Domain: ninja-forms
@@ -51,11 +51,13 @@ global $wpdb, $wp_version;
 
 define("NINJA_FORMS_DIR", WP_PLUGIN_DIR."/".basename( dirname( __FILE__ ) ) );
 define("NINJA_FORMS_URL", plugins_url()."/".basename( dirname( __FILE__ ) ) );
-define("NINJA_FORMS_VERSION", "2.2.56");
+define("NINJA_FORMS_VERSION", "2.3");
 define("NINJA_FORMS_TABLE_NAME", $wpdb->prefix . "ninja_forms");
 define("NINJA_FORMS_FIELDS_TABLE_NAME", $wpdb->prefix . "ninja_forms_fields");
 define("NINJA_FORMS_FAV_FIELDS_TABLE_NAME", $wpdb->prefix . "ninja_forms_fav_fields");
 define("NINJA_FORMS_SUBS_TABLE_NAME", $wpdb->prefix . "ninja_forms_subs");
+
+define("NINJA_FORMS_JS_DEBUG", false);
 
 /* Require Core Files */
 require_once( NINJA_FORMS_DIR . "/includes/database.php" );
@@ -65,6 +67,8 @@ require_once( NINJA_FORMS_DIR . "/includes/shortcode.php" );
 require_once( NINJA_FORMS_DIR . "/includes/widget.php" );
 require_once( NINJA_FORMS_DIR . "/includes/field-type-groups.php" );
 require_once( NINJA_FORMS_DIR . "/includes/eos.class.php" );
+require_once( NINJA_FORMS_DIR . "/includes/from-setting-check.php" );
+require_once( NINJA_FORMS_DIR . "/includes/reply-to-check.php" );
 
 require_once( NINJA_FORMS_DIR . "/includes/display/scripts.php" );
 
@@ -251,6 +255,7 @@ require_once( NINJA_FORMS_DIR . "/includes/fields/organizer.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/submit.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/spam.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/honeypot.php" );
+require_once( NINJA_FORMS_DIR . "/includes/fields/timed-submit.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/hr.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/desc.php" );
 require_once( NINJA_FORMS_DIR . "/includes/fields/textarea.php" );
