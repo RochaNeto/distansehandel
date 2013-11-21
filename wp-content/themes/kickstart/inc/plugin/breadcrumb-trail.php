@@ -7,24 +7,24 @@
  * Author: Luis Alberto Ochoa
  * Author URI: http://luisalberto.org
  * License: GPL2
- * 
- * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
- * General Public License version 2, as published by the Free Software Foundation.  You may NOT assume 
+ *
+ * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License version 2, as published by the Free Software Foundation.  You may NOT assume
  * that you can use any other version of the GPL.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * You should have received a copy of the GNU General Public License along with this program; if not, write 
+ * You should have received a copy of the GNU General Public License along with this program; if not, write
  * to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
- * 
+ *
  * @package Breadcrumbs Plus
  * @version 0.3
  * @author Luis Alberto Ochoa <soy@luisalberto.org>
  * @copyright Copyright (c) 2010, Luis Alberto Ochoa
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
- 
+
 function mnky_breadcrumb( $args = '' ) {
 
 		/* Set up the default arguments for the breadcrumb. */
@@ -83,9 +83,9 @@ function mnky_breadcrumb( $args = '' ) {
 		$show_on_front = get_option( 'show_on_front' );
 
 		/* Front page. */
-		if ( is_front_page() ) 
+		if ( is_front_page() )
 			$item['last'] = $args['home'];
-		
+
 
 		/* Link to front page. */
 		if ( !is_front_page() )
@@ -107,9 +107,9 @@ function mnky_breadcrumb( $args = '' ) {
 
 			$post_type_object = get_post_type_object( $post_type );
 
-			if ( 'post' === $wp_query->post->post_type && $args['show_blog'] ) {
-				$item[] = '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">' . get_the_title( get_option( 'page_for_posts' ) ) . '</a>';
-			}
+			// if ( 'post' === $wp_query->post->post_type && $args['show_blog'] ) {
+			// 	$item[] = '<a href="' . get_permalink( get_option( 'page_for_posts' ) ) . '">' . get_the_title( get_option( 'page_for_posts' ) ) . '</a>';
+			// }
 
 			if ( 'page' !== $wp_query->post->post_type ) {
 
