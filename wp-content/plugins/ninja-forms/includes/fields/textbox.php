@@ -18,7 +18,7 @@ function ninja_forms_register_field_textbox(){
 			array(
 				'type' => 'checkbox',
 				'name' => 'send_email',
-				'label' => __( 'Send a repsonse email to this email address?', 'ninja-forms' ),
+				'label' => __( 'Send a response email to this email address?', 'ninja-forms' ),
 			),
 			// array(
 			// 	'type' => 'checkbox',
@@ -70,6 +70,12 @@ function ninja_forms_register_field_textbox(){
 			array(
 				'type' => 'hidden',
 				'name' => 'user_info_field_group',
+				'default' => 1,
+			),
+			array(
+				'type' => 'checkbox',
+				'label' => __( 'This is the user\'s state', 'ninja-forms' ),
+				'name' => 'user_state',
 			),
 		),
 		'display_function' => 'ninja_forms_field_text_display',
@@ -97,7 +103,7 @@ function ninja_forms_register_field_textbox(){
 add_action( 'init', 'ninja_forms_register_field_textbox' );
 
 function ninja_forms_field_text_edit( $field_id, $data ){
-	$plugin_settings = get_option( 'ninja_forms_settings' );
+	$plugin_settings = nf_get_settings();
 
 	if( isset( $plugin_settings['currency_symbol'] ) ){
 		$currency_symbol = $plugin_settings['currency_symbol'];
@@ -108,7 +114,7 @@ function ninja_forms_field_text_edit( $field_id, $data ){
 	if( isset( $plugin_settings['date_format'] ) ){
 		$date_format = $plugin_settings['date_format'];
 	}else{
-		$date_format = "$";
+		$date_format = "m/d/Y";
 	}
 	$custom = '';
 	// Default Value
@@ -137,6 +143,7 @@ function ninja_forms_field_text_edit( $field_id, $data ){
 				<option value="post_id" <?php if($default_value == 'post_id'){ echo 'selected'; $custom = 'no';}?>><?php _e('Post / Page ID (If available)', 'ninja-forms'); ?></option>
 				<option value="post_title" <?php if($default_value == 'post_title'){ echo 'selected'; $custom = 'no';}?>><?php _e('Post / Page Title (If available)', 'ninja-forms'); ?></option>
 				<option value="post_url" <?php if($default_value == 'post_url'){ echo 'selected'; $custom = 'no';}?>><?php _e('Post / Page URL (If available)', 'ninja-forms'); ?></option>
+				<option value="today" <?php if($default_value == 'today'){ echo 'selected'; $custom = 'no';}?>><?php _e('Today\'s Date', 'ninja-forms'); ?></option>
 				<option value="_custom" <?php if($custom != 'no'){ echo 'selected';}?>><?php _e('Custom', 'ninja-forms'); ?> -></option>
 			</select>
 		</span>
@@ -192,6 +199,10 @@ function ninja_forms_field_text_display( $field_id, $data ){
 	global $current_user;
 	$field_class = ninja_forms_get_field_class( $field_id );
 
+	if ( isset( $data['email'] ) ) {
+		$field_class .= ' email';
+	}
+
 	if(isset($data['default_value'])){
 		$default_value = $data['default_value'];
 	}else{
@@ -214,6 +225,24 @@ function ninja_forms_field_text_display( $field_id, $data ){
 		$mask = $data['mask'];
 	}else{
 		$mask = '';
+	}	
+
+	if( isset( $data['input_limit'] ) ){
+		$input_limit = $data['input_limit'];
+	}else{
+		$input_limit = '';
+	}
+
+	if( isset( $data['input_limit_type'] ) ){
+		$input_limit_type = $data['input_limit_type'];
+	}else{
+		$input_limit_type = '';
+	}
+
+	if( isset( $data['input_limit_msg'] ) ){
+		$input_limit_msg = $data['input_limit_msg'];
+	}else{
+		$input_limit_msg = '';
 	}
 
 	switch( $mask ){
@@ -236,16 +265,16 @@ function ninja_forms_field_text_display( $field_id, $data ){
 	}
 
 	?>
-	<input id="ninja_forms_field_<?php echo $field_id;?>" title="<?php echo $mask;?>" name="ninja_forms_field_<?php echo $field_id;?>" type="text" class="<?php echo $field_class;?> <?php echo $mask_class;?>" value="<?php echo $default_value;?>" rel="<?php echo $field_id;?>" />
+	<input id="ninja_forms_field_<?php echo $field_id;?>" data-mask="<?php echo $mask;?>" data-input-limit="<?php echo $input_limit;?>" data-input-limit-type="<?php echo $input_limit_type;?>" data-input-limit-msg="<?php echo $input_limit_msg;?>" name="ninja_forms_field_<?php echo $field_id;?>" type="text" class="<?php echo $field_class;?> <?php echo $mask_class;?>" value="<?php echo $default_value;?>" rel="<?php echo $field_id;?>" />
 	<?php
 
 }
 
 function ninja_forms_field_text_pre_process( $field_id, $user_value ){
 	global $ninja_forms_processing;
-	$plugin_settings = get_option( 'ninja_forms_settings' );
+	$plugin_settings = nf_get_settings();
 	if( isset( $plugin_settings['invalid_email'] ) ){
-		$invalid_email = $plugin_settings['invalid_email'];
+		$invalid_email = __( $plugin_settings['invalid_email'], 'ninja-forms' );
 	}else{
 		$invalid_email = __( 'Please enter a valid email address.', 'ninja-forms' );
 	}

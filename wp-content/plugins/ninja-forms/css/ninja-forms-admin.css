@@ -1,5 +1,5 @@
 /* ---------------------------------
-/  Generic styles & classes 
+/  Generic styles & classes
 ----------------------------------*/
 .nf-box {
 	background: #f1f1f1;
@@ -11,7 +11,7 @@
 
 
 /* ---------------------------------
-/  Styles for specific admin pages 
+/  Styles for specific admin pages
 ----------------------------------*/
 
 div.field-wrap.list-wrap {
@@ -178,6 +178,11 @@ border-bottom-color: transparent;
 }
 #ninja_forms_admin_metaboxes .item-edit {
 	top: -4px;
+}
+#ninja_forms_admin_metaboxes textarea {
+	min-height: 100px;
+	padding: 5px;
+	width: 100%;
 }
 
 .menu-item-settings.list li {
@@ -637,7 +642,8 @@ a.tooltip span
 	float: left;
 	margin: 0 20px 20px 0;
 	width: 300px;
-	height: 315px;
+	height: 350px;
+	position: relative;
 }
 .nf-extend img {
 	margin-bottom: 10px;
@@ -651,6 +657,12 @@ a.tooltip span
 	right: 10px;
 }
 
+.nf-extend .nf-doc-button {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
 .mp6 .nf-extend {
 	background: #fff;
 	border: 1px solid #ccc;
@@ -662,7 +674,9 @@ a.tooltip span
 	width: 300px;
 	height: 350px;
 }
-
+.branch-3-8 .nf-extend {
+	background: #fff;
+}
 .forms_page_ninja-forms-style h2 .nav-tab {
 	font-size: 16px;
 }
@@ -713,9 +727,13 @@ a.tooltip span
 	width: 50px;
 }
 
+#wpfooter {
+	display: none;
+}
+
 
 /* ---------------------------------
-/  System Status Page 
+/  System Status Page
 ----------------------------------*/
 #debug-report {
 	display: none;
@@ -754,8 +772,34 @@ p.debug-report {
 	}
 		.nf-status-table td:first-child {
 			border-left: 1px solid #ccc;
-			border-right-width: 0; 
+			border-right-width: 0;
 		}
 		.nf-status-table tbody:last-child td {
 			border-bottom-width: 1px;
 		}
+
+/* ---------------------------------
+/  WP 3.8 styles
+----------------------------------*/
+
+.branch-3-8 #post-body .menu-item-handle,
+.branch-3-9 #post-body .menu-item-handle {
+	background: #fff;
+	padding: 10px 5px 10px 10px;
+}
+.branch-3-8 #post-body .menu-item-settings,
+.branch-3-9 #post-body .menu-item-settings {
+	background: #fff;
+	padding: 12px;
+}
+.branch-3-8 #post-body #post-body-content h3,
+.branch-3-9 #post-body #post-body-content h3 {
+ margin-top: 0;
+}
+/*.branch-3-8 .item-controls {
+	top: 5px;
+}*/
+.branch-3-8 #TB_window .item-controls,
+.branch-3-9 #TB_window .item-controls {
+	top: -5px;
+}

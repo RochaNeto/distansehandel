@@ -89,7 +89,10 @@ jQuery.fn.nextElementInDom = function(selector, options) {
 jQuery(document).ready(function($) {
 	/* * * General JS * * */
 
-	$(".ninja-forms-admin-date").datepicker();
+
+	$(".ninja-forms-admin-date").datepicker({
+		dateFormat: ninja_forms_settings.date_format
+	});
 
 	//Select All Checkbox
 	$(".ninja-forms-select-all").click(function(){
@@ -389,7 +392,7 @@ jQuery(document).ready(function($) {
 			$("#ninja_forms_field_" + id + "_default_value").val(this.value);
 		}
 
-		if(this.value != ''){
+		if(this.value != '' && this.value != 'today' ){
 			$("#ninja_forms_field_" + id + "_datepicker").prop('checked', false);
 			if(this.value != '_user_email'){
 				$("#ninja_forms_field_" + id + "_email").prop("checked", false);
@@ -432,7 +435,9 @@ jQuery(document).ready(function($) {
 		id = id.replace("_datepicker", "");
 		if(this.checked == true){
 			//$("#ninja_forms_field_" + id + "_default_value").val("");
-			$("#ninja_forms_field_" + id + "_mask").val("");
+			if ( $("#ninja_forms_field_" + id + "_mask").val() != 'today' ) {
+				$("#ninja_forms_field_" + id + "_mask").val("");
+			}
 			$("#default_value_" + id).val("");
 			$("#default_value_label_" + id).hide();
 			$("#mask_" + id).val("");
@@ -705,7 +710,7 @@ jQuery(document).ready(function($) {
 
 	// Handle the importing of textarea data when the user clicks: "done"
 
-	$(".save-list-import").click(function(e){
+	$(document).on( 'click', '.save-list-import', function(e){
 		e.preventDefault();
 		var options = $(this).parent().find("textarea").val();
 		var field_id = $(this).attr("rel");
@@ -1017,6 +1022,15 @@ jQuery(document).ready(function($) {
 
 function ninja_forms_new_field_response( response ){
 	jQuery("#ninja_forms_field_list").append(response.new_html).show('slow');
+	if ( response.new_type == 'List' ) {
+		//Make List Options sortable
+		jQuery(".ninja-forms-field-list-options").sortable({
+			helper: 'clone',
+			handle: '.ninja-forms-drag',
+			items: 'div',
+			placeholder: "ui-state-highlight",
+		});
+	}
 	if(typeof response.edit_options != 'undefined'){
 		for(var i = 0; i < response.edit_options.length; i++){
 			if(response.edit_options[i].type == 'rte'){

@@ -84,6 +84,9 @@ function ninja_forms_save_field_settings($form_id, $data){
 			$data_array = array('data' => serialize( $field_data ), 'order' => $order);
 			$wpdb->update( NINJA_FORMS_FIELDS_TABLE_NAME, $data_array, array( 'id' => $field_id ));
 		}
+		$date_updated = date( 'Y-m-d H:i:s', strtotime ( 'now' ) );
+		$data_array = array( 'date_updated' => $date_updated );
+		$wpdb->update( NINJA_FORMS_TABLE_NAME, $data_array, array( 'id' => $form_id ) );
 	}
 
 	$update_msg = __( 'Field Settings Saved', 'ninja-forms' );
